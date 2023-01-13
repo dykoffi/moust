@@ -1,0 +1,18 @@
+version: "3.9" # optional since v1.27.0
+services:
+  moust_db_dev:
+    image: postgres:14-alpine
+    container_name: moust_db_dev
+    environment:
+      - POSTGRES_USER=moust_user
+      - POSTGRES_DB=moust_db_dev
+      - POSTGRES_PASSWORD=7497
+    ports:
+      - 45301:5432
+    volumes:
+      - moust_vol_dev:/var/lib/postgresql/data
+
+
+volumes:
+  moust_vol_dev:
+    driver: local
